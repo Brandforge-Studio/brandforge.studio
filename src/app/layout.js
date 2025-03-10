@@ -29,7 +29,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${tiltWarp.variable} antialiased`}
       >
-        <div className="min-h-screen flex flex-col bg-[url('/splash.webp')] bg-cover bg-center p-2">
+        <div className="min-h-screen flex flex-col bg-cover bg-center p-2">
           <PageNav />
           <main className="flex-1 flex flex-col gap-8 items-center sm:items-start">
             {children}
