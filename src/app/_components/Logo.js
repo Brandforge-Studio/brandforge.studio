@@ -32,50 +32,50 @@ export default function Logo() {
     return () => window.removeEventListener('resize', updateBounds);
   }, []);
   
-  // Track mouse movement
+  // Track mouse movement across the entire viewport
   useEffect(() => {
     const handleMouseMove = (e) => {
-      // Only update if mouse is within viewport
-      if (e.clientX >= 0 && e.clientY >= 0) {
-        setMousePosition({ x: e.clientX, y: e.clientY });
-      }
+      setMousePosition({ x: e.clientX, y: e.clientY });
     };
     
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
   
-  // Calculate logo positions with gentle edge deceleration
+  // Calculate logo positions with viewport-wide tracking
   const calculatePositions = () => {
     if (sectionBounds.width === 0) return { blue: { x: 0, y: 0 }, red: { x: 0, y: 0 } };
     
-    // Calculate relative position within section (0 to 1)
-    const relativeX = Math.max(0, Math.min(1, 
-      (mousePosition.x - sectionBounds.left) / sectionBounds.width
-    ));
-    const relativeY = Math.max(0, Math.min(1, 
-      (mousePosition.y - sectionBounds.top) / sectionBounds.height
-    ));
+    // Get viewport dimensions
+    const viewportWidth = window.innerWidth;
+    const viewportHeight = window.innerHeight;
     
-    // Simple edge easing function (less aggressive than the quadratic one)
-    const easeEdge = (value) => {
-      // Convert 0-1 to -0.5 to 0.5 range
-      const centered = value - 0.5;
-      // Apply a gentle cubic easing
-      return centered * (1 - 0.5 * Math.abs(centered));
-    };
+    // Calculate relative position within viewport (0 to 1)
+    const relativeX = mousePosition.x / viewportWidth;
+    const relativeY = mousePosition.y / viewportHeight;
     
     // Movement range
     const moveRangeX = 15; // percentage
     const moveRangeY = 15; // percentage
     
-    // Blue logo follows mouse (attraction) with gentle edge easing
-    const blueX = easeEdge(relativeX) * moveRangeX * 2;
-    const blueY = easeEdge(relativeY) * moveRangeY * 2;
+    // Calculate centered position (-0.5 to 0.5)
+    const centeredX = relativeX - 0.5;
+    const centeredY = relativeY - 0.5;
     
-    // Red logo moves away from mouse (repulsion) with gentle edge easing
-    const redX = -easeEdge(relativeX) * moveRangeX * 2;
-    const redY = -easeEdge(relativeY) * moveRangeY * 2;
+    // Calculate distance from center (0 to ~0.7 for corners)
+    const distanceFromCenter = Math.sqrt(centeredX * centeredX + centeredY * centeredY);
+    
+    // Smooth deceleration factor (1 at center, approaches 0 at edges)
+    // Using a gentler falloff (1.2 instead of 1.4)
+    const smoothFactor = Math.max(0, 1 - distanceFromCenter * 1.2);
+    
+    // Blue logo follows mouse (attraction) with smooth deceleration
+    const blueX = centeredX * moveRangeX * 2 * smoothFactor;
+    const blueY = centeredY * moveRangeY * 2 * smoothFactor;
+    
+    // Red logo moves away from mouse (repulsion) with smooth deceleration
+    const redX = -centeredX * moveRangeX * 2 * smoothFactor;
+    const redY = -centeredY * moveRangeY * 2 * smoothFactor;
     
     return { 
       blue: { x: blueX, y: blueY },
@@ -96,6 +96,18 @@ export default function Logo() {
             transform: translateY(-8px);
           }
         }
+        
+        .logo-white {
+          animation: bobFloat 3s ease-in-out infinite;
+        }
+        
+        .logo-red {
+          animation: bobFloat 3.5s ease-in-out infinite;
+        }
+        
+        .logo-blue {
+          animation: bobFloat 4s ease-in-out infinite;
+        }
       `}</style>
       
       <section 
@@ -111,9 +123,7 @@ export default function Logo() {
                 alt="Brand Forge Logo"
                 width={1000}
                 height={450}
-                style={{
-                  animation: 'bobFloat 3s ease-in-out infinite'
-                }}
+                className="logo-white"
               />
             </div>
             
@@ -131,9 +141,7 @@ export default function Logo() {
                 alt="Brand Forge Logo"
                 width={1000}
                 height={450}
-                style={{
-                  animation: 'bobFloat 3.5s ease-in-out infinite'
-                }}
+                className="logo-red"
               />
             </div>
             
@@ -151,9 +159,7 @@ export default function Logo() {
                 alt="Brand Forge Logo"
                 width={1000}
                 height={450}
-                style={{
-                  animation: 'bobFloat 4s ease-in-out infinite'
-                }}
+                className="logo-blue"
               />
             </div>
           </div>
