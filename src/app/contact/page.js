@@ -1,3 +1,7 @@
 export default function Contact() {
-  return <div>Contact</div>;
+  return (
+    <>
+      {/* About page content */}
+    </>
+  )
 }

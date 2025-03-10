@@ -1,3 +1,7 @@
 export default function Pricing() {
-  return <div>Pricing</div>;
+  return (
+    <>
+      {/* About page content */}
+    </>
+  )
 }
