@@ -1,10 +1,14 @@
 import Logo from "./_components/Logo";
-import AnimatedBackground from "./_components/AnimatedBackground";
+import Space from "./_components/Space";
+import SpaceRock from "./_components/SpaceRock";
+import SpaceMan from "./_components/SpaceMan";
 
 export default function Home() {
   return (
     <>
-      <AnimatedBackground />
+      <Space />
+      <SpaceRock />
+      <SpaceMan />
       <div className="absolute top-36 left-36">
         <Logo />
       </div>

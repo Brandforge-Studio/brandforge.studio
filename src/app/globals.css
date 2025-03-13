@@ -19,3 +19,15 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.mask-shape {
+  mask-image: url('/space-man-holo.webp');
+  mask-size: cover;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  /* For better cross-browser support, also include -webkit- prefix */
+  -webkit-mask-image: url('/space-man-holo.webp');
+  -webkit-mask-size: cover;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+}
