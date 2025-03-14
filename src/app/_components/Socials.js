@@ -6,7 +6,7 @@ export default function Socials() {
       <Link href="#">
         <Image
           className="dark:invert hover:scale-125 transition-all duration-300"
-          src="/facebook-brands.svg"
+          src="/facebookBrands.svg"
           alt="facebook"
           width={32}
           height={32}
@@ -15,7 +15,7 @@ export default function Socials() {
       <Link href="#">
         <Image
           className="dark:invert hover:scale-125 transition-all duration-300"
-          src="/instagram-brands.svg"
+          src="/instagramBrands.svg"
           alt="instagram"
           width={32}
           height={32}
@@ -24,7 +24,7 @@ export default function Socials() {
       <Link href="#">
         <Image
           className="dark:invert hover:scale-125 transition-all duration-300"
-          src="/linkedin-in-brands.svg"
+          src="/linkedinInBrands.svg"
           alt="linkedin"
           width={32}
           height={32}
@@ -33,7 +33,7 @@ export default function Socials() {
       <Link href="#">
         <Image
           className="dark:invert hover:scale-125 transition-all duration-300"
-          src="/tiktok-brands.svg"
+          src="/tiktokBrands.svg"
           alt="tiktok"
           width={32}
           height={32}
@@ -42,7 +42,7 @@ export default function Socials() {
       <Link href="#">
         <Image
           className="dark:invert hover:scale-125 transition-all duration-300"
-          src="/x-twitter-brands.svg"
+          src="/xTwitterBrands.svg"
           alt="twitter"
           width={32}
           height={32}
