@@ -12,6 +12,9 @@ export default {
         'float-slow-delay': 'float 5s ease-in-out 0.5s infinite',
         'float-fast': 'float 2s ease-in-out infinite',
         'float-fast-delay': 'float 2s ease-in-out 0.5s infinite',
+        'rotate': 'rotate 60s linear infinite',
+        'rotate-slow': 'rotate 240s linear infinite',
+        'rotate-very-slow': 'rotate 480s linear infinite'
       },
       colors: {
         background: "var(--background)",
@@ -22,6 +25,13 @@ export default {
           '0%, 100%': { transform: 'translateY(0)' },
           '50%': { transform: 'translateY(-10px)' },
         },
+        rotate: {
+          '0%': { transform: 'rotate(0deg)' },
+          '100%': { transform: 'rotate(360deg)' },
+        }
+      },
+      transformOrigin: {
+        'center-right': '100% 50%',
       }
     },
   },

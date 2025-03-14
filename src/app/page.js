@@ -9,11 +9,9 @@ export default function Home() {
       <Space />
       <Asteroid />
       <Astronaut />
-      <div className="absolute top-36 left-36">
+      <div className="absolute top-36 left-36 w-1/3 h-1/3">
+        <h1 className="sr-only">Brand Forge Studio</h1>
         <Logo />
-      </div>
-      <div className="fixed inset-0 flex justify-center items-center pointer-events-none">
-        <h2 className="text-center text-white text-4xl font-bold">Coming soon...</h2>
       </div>
     </>
   );

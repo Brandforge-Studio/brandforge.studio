@@ -86,62 +86,60 @@ export default function Logo() {
   const positions = calculatePositions();
 
   return (
-    <>
-      <section 
-        ref={sectionRef}
-        className="aspect-[2/1] flex justify-center items-center relative w-1/2"
-      >
-        <Link href="/" className="relative w-full h-full flex justify-center items-center">
-          <div className="relative w-full h-full flex justify-center items-center">
-            {/* White logo with standard float animation */}
-            <div className="relative z-30">
-              <Image
-                src="/logoWhite.svg"
-                alt="Brand Forge Logo"
-                width={1000}
-                height={450}
-                className="animate-float"
-              />
-            </div>
-            
-            {/* Red logo with slow float animation and mouse repulsion */}
-            <div 
-              style={{
-                position: 'absolute',
-                transform: `translate(${positions.red.x}%, ${positions.red.y}%)`,
-                transition: 'transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1)',
-                zIndex: 20
-              }}
-            >
-              <Image
-                src="/logoRed.svg"
-                alt="Brand Forge Logo"
-                width={1000}
-                height={450}
-                className="animate-float-slow"
-              />
-            </div>
-            
-            {/* Blue logo with delayed float animation and mouse following */}
-            <div
-              style={{
-                position: 'absolute',
-                transform: `translate(${positions.blue.x}%, ${positions.blue.y}%)`,
-                transition: 'transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1)',
-                zIndex: 10
-              }}
-            >
-              <Image
-                src="/logoBlue.svg"
-                alt="Brand Forge Logo"
-                width={1000}
-                height={450}
-                className="animate-float-slow-delay"
-              />
-            </div>
+    <section 
+      ref={sectionRef}
+      className="aspect-[2/1] flex justify-center items-center relative w-full h-full"
+    >
+      <Link href="/" className="relative w-full h-full flex justify-center items-center">
+        <div className="relative w-full h-full flex justify-center items-center">
+          {/* White logo with standard float animation */}
+          <div className="relative z-30">
+            <Image
+              src="/logoWhite.svg"
+              alt="Brand Forge Logo"
+              width={1000}
+              height={450}
+              className="animate-float"
+            />
           </div>
-        </Link>
-      </section>
-    </>
+          
+          {/* Red logo with slow float animation and mouse repulsion */}
+          <div 
+            style={{
+              position: 'absolute',
+              transform: `translate(${positions.red.x}%, ${positions.red.y}%)`,
+              transition: 'transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1)',
+              zIndex: 20
+            }}
+          >
+            <Image
+              src="/logoRed.svg"
+              alt="Brand Forge Logo"
+              width={1000}
+              height={450}
+              className="animate-float-slow"
+            />
+          </div>
+          
+          {/* Blue logo with delayed float animation and mouse following */}
+          <div
+            style={{
+              position: 'absolute',
+              transform: `translate(${positions.blue.x}%, ${positions.blue.y}%)`,
+              transition: 'transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1)',
+              zIndex: 10
+            }}
+          >
+            <Image
+              src="/logoBlue.svg"
+              alt="Brand Forge Logo"
+              width={1000}
+              height={450}
+              className="animate-float-slow-delay"
+            />
+          </div>
+        </div>
+      </Link>
+    </section>
   );
 }
