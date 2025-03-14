@@ -29,16 +29,14 @@ export default function Space() {
   }, []);
   
   useEffect(() => {
-    // Preload the image to avoid flickering
+    // Check if the image can be loaded
     const img = new Image();
     img.src = '/space.svg';
     img.onload = () => setIsLoaded(true);
-    
-    return () => {
-      // Clean up
-      if (requestIdRef.current) {
-        cancelAnimationFrame(requestIdRef.current);
-      }
+    img.onerror = (e) => {
+      console.error('Error loading space.svg:', e);
+      // Fallback to a color if the image fails to load
+      setIsLoaded(true);
     };
   }, []);
   
@@ -58,17 +56,16 @@ export default function Space() {
   }, [isLoaded, animate]);
   
   if (!isLoaded) {
-    return <div className="fixed inset-0 bg-black -z-10" />;
+    return <div className="fixed inset-0 -z-10 bg-black"></div>;
   }
   
   return (
-    <div 
-      ref={animationRef}
-      className="fixed inset-0 w-screen h-screen bg-repeat-y -z-10"
-      style={{ 
-        backgroundImage: "url('/space.svg')",
-        backgroundSize: "100vw auto",
-      }}
-    />
+    <div className="fixed inset-0 -z-10">
+      <img 
+        src="/space.svg" 
+        alt="Space background" 
+        className="w-full h-full object-cover" 
+      />
+    </div>
   );
 } 

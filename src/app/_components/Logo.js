@@ -87,47 +87,24 @@ export default function Logo() {
 
   return (
     <>
-      <style jsx global>{`
-        @keyframes bobFloat {
-          0%, 100% {
-            transform: translateY(0);
-          }
-          50% {
-            transform: translateY(-8px);
-          }
-        }
-        
-        .logo-white {
-          animation: bobFloat 3s ease-in-out infinite;
-        }
-        
-        .logo-red {
-          animation: bobFloat 3.5s ease-in-out infinite;
-        }
-        
-        .logo-blue {
-          animation: bobFloat 4s ease-in-out infinite;
-        }
-      `}</style>
-      
       <section 
         ref={sectionRef}
         className="aspect-[2/1] flex justify-center items-center relative w-1/2"
       >
         <Link href="/" className="relative w-full h-full flex justify-center items-center">
           <div className="relative w-full h-full flex justify-center items-center">
-            {/* White logo with bobbing animation */}
+            {/* White logo with standard float animation */}
             <div className="relative z-30">
               <Image
-                src="/logo-white.svg"
+                src="/logoWhite.svg"
                 alt="Brand Forge Logo"
                 width={1000}
                 height={450}
-                className="logo-white"
+                className="animate-float"
               />
             </div>
             
-            {/* Red logo with mouse repulsion and bobbing */}
+            {/* Red logo with slow float animation and mouse repulsion */}
             <div 
               style={{
                 position: 'absolute',
@@ -137,16 +114,16 @@ export default function Logo() {
               }}
             >
               <Image
-                src="/logo-red.svg"
+                src="/logoRed.svg"
                 alt="Brand Forge Logo"
                 width={1000}
                 height={450}
-                className="logo-red"
+                className="animate-float-slow"
               />
             </div>
             
-            {/* Blue logo with mouse following and bobbing */}
-            <div 
+            {/* Blue logo with delayed float animation and mouse following */}
+            <div
               style={{
                 position: 'absolute',
                 transform: `translate(${positions.blue.x}%, ${positions.blue.y}%)`,
@@ -155,11 +132,11 @@ export default function Logo() {
               }}
             >
               <Image
-                src="/logo-blue.svg"
+                src="/logoBlue.svg"
                 alt="Brand Forge Logo"
                 width={1000}
                 height={450}
-                className="logo-blue"
+                className="animate-float-slow-delay"
               />
             </div>
           </div>

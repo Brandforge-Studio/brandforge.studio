@@ -1,7 +1,7 @@
 'use client';
 import { useEffect, useState, useRef } from 'react';
 
-export default function SpaceMan() {
+export default function SpaceManBackup() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
   const imgRef = useRef(null);

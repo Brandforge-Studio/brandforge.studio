@@ -20,14 +20,4 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.mask-shape {
-  mask-image: url('/space-man-holo.webp');
-  mask-size: cover;
-  mask-repeat: no-repeat;
-  mask-position: center;
-  /* For better cross-browser support, also include -webkit- prefix */
-  -webkit-mask-image: url('/space-man-holo.webp');
-  -webkit-mask-size: cover;
-  -webkit-mask-repeat: no-repeat;
-  -webkit-mask-position: center;
-}
+/* Remove the mask-shape class from here since it's now in the Tailwind config */

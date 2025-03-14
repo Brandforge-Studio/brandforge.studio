@@ -1,14 +1,14 @@
 import Logo from "./_components/Logo";
 import Space from "./_components/Space";
-import SpaceRock from "./_components/SpaceRock";
-import SpaceMan from "./_components/SpaceMan";
+import Asteroid from "./_components/Asteroid";
+import Astronaut from "./_components/Astronaut";
 
 export default function Home() {
   return (
     <>
       <Space />
-      <SpaceRock />
-      <SpaceMan />
+      <Asteroid />
+      <Astronaut />
       <div className="absolute top-36 left-36">
         <Logo />
       </div>
