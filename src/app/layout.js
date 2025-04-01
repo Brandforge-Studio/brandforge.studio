@@ -17,15 +17,13 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${lexendDeca.variable} antialiased`}
+        className={`${lexendDeca.variable} antialiased font-sans min-h-screen`}
       >
-        <div className="min-h-screen flex flex-col bg-cover bg-center p-2">
-          <PageNav />
-          <main className="flex-1 flex flex-col gap-8 items-center sm:items-start">
-            {children}
-          </main>
-          <Footer />
-        </div>
+        <PageNav />
+        <main className="flex-1 flex flex-col">
+          {children}
+        </main>
+        <Footer />
       </body>
     </html>
   );

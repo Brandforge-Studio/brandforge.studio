@@ -122,7 +122,7 @@ export default function Asteroid() {
   }
   
   return (
-    <div className="fixed -bottom-10 right-0 w-full h-fit">
+    <div className="absolute -bottom-10 right-0 w-full h-fit z-[-2]">
       <div className="relative animate-float-slow">
         <img 
           ref={imgRef}
