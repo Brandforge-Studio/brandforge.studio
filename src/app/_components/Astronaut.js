@@ -64,25 +64,35 @@ export default function Astronaut() {
   };
   
   useEffect(() => {
-    // Preload both images
-    const img1 = new Image();
-    img1.src = '/astronaut.webp';
-    
-    const img2 = new Image();
-    img2.src = '/astronautHolo.webp';
-    
-    // Set loaded when both images are ready
-    Promise.all([
-      new Promise(resolve => { img1.onload = resolve; }),
-      new Promise(resolve => { img2.onload = resolve; })
-    ]).then(() => setIsLoaded(true));
-    
-    return () => {
-      if (animationFrameId.current) {
-        cancelAnimationFrame(animationFrameId.current);
+    const img = imgRef.current;
+    const handleLoad = () => {
+      if (img) {
+        setDimensions({ width: img.offsetWidth, height: img.offsetHeight });
+        setIsLoaded(true); // Mark as loaded once dimensions are set
       }
     };
-  }, []);
+
+    if (img?.complete) {
+      handleLoad();
+    } else if (img) {
+      img.addEventListener('load', handleLoad);
+    }
+
+    // Optional: Recalculate on resize if needed, though less critical without fixed positioning
+    const handleResize = () => {
+      if (img && isLoaded) { // Only recalculate if already loaded
+        setDimensions({ width: img.offsetWidth, height: img.offsetHeight });
+      }
+    };
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      if (img) {
+        img.removeEventListener('load', handleLoad);
+      }
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [isLoaded]); // Rerun effect if isLoaded changes (e.g., initial load)
   
   // Start gradient animation when loaded
   useEffect(() => {
@@ -98,44 +108,39 @@ export default function Astronaut() {
     };
   }, [isLoaded]);
   
-  // Get dimensions of the base image after it loads
-  useEffect(() => {
-    if (isLoaded && imgRef.current) {
-      const updateDimensions = () => {
-        setDimensions({
-          width: imgRef.current.offsetWidth,
-          height: imgRef.current.offsetHeight
-        });
-      };
-      
-      // Initial measurement
-      updateDimensions();
-      
-      // Update on window resize
-      window.addEventListener('resize', updateDimensions);
-      return () => window.removeEventListener('resize', updateDimensions);
-    }
-  }, [isLoaded]);
-  
-  if (!isLoaded) {
-    return null;
+  // Render nothing or a placeholder until loaded and dimensions are known
+  // This prevents the gradient overlay from appearing with 0 dimensions initially
+  if (!isLoaded || dimensions.width === 0) {
+    // You might want a placeholder here, or simply return null
+    // For now, returning null to avoid rendering before dimensions are ready
+    // We still need the img element rendered initially for the load event
+    return (
+       <div className="w-full h-auto invisible"> {/* Keep structure but hide */}
+         <img
+           ref={imgRef}
+           src="/astronaut.webp"
+           alt="" // Alt text can be empty if purely decorative or handled by the visible one
+           className="w-full h-auto" // Ensure image scales
+           style={{ opacity: 0 }} // Hide the pre-load image
+         />
+       </div>
+    );
   }
   
   return (
-    <div className="fixed top-36 right-72 w-5/12 h-fit">
-      <div className="relative animate-float">
-        <img 
+    <div className="w-full h-auto">
+      <div className="relative animate-float"> {/* Relative container for positioning */}
+        <img
           ref={imgRef}
-          src="/astronaut.webp" 
-          alt="Astronaut outlined in psychedelic neon colors" 
-          className="w-full h-auto"
+          src="/astronaut.webp"
+          alt="Astronaut outlined in psychedelic neon colors"
+          className="w-full h-auto block" 
         />
         <div
           ref={gradientRef}
-          className="astronautMask absolute top-0 left-0 mix-blend-color-dodge"
-          style={{ 
-            width: dimensions.width, 
-            height: dimensions.height,
+          className="astronautMask absolute inset-0 mix-blend-color-dodge" 
+          // Use inset-0 to cover the entire parent area rather than explicit dimensions
+          style={{
             background: 'radial-gradient(circle at 50% 50%, #f67e16 0%, #e526ef 33%, #cdf858 66%, #5efbd2 100%)'
           }}
         />

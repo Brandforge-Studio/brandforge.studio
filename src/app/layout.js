@@ -1,20 +1,10 @@
-import { Geist, Geist_Mono, Tilt_Warp } from "next/font/google";
+import { Lexend_Deca } from "next/font/google";
 import "./globals.css";
 import PageNav from "./_components/PageNav";
 import Footer from "./_components/Footer";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-const tiltWarp = Tilt_Warp({
-  variable: "--font-tilt-warp",
+const lexendDeca = Lexend_Deca({
+  variable: "--font-lexend-deca",
   subsets: ["latin"],
 });
 
@@ -27,7 +17,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${tiltWarp.variable} antialiased`}
+        className={`${lexendDeca.variable} antialiased`}
       >
         <div className="min-h-screen flex flex-col bg-cover bg-center p-2">
           <PageNav />

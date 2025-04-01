@@ -8,10 +8,12 @@ export default {
       animation: {
         'float': 'float 3s ease-in-out infinite',
         'float-delay': 'float 3s ease-in-out 0.5s infinite',
+        'float-delay-2': 'float 3s ease-in-out 1.0s infinite',
+        'float-delay-3': 'float 3s ease-in-out 1.5s infinite',
         'float-slow': 'float 5s ease-in-out infinite',
         'float-slow-delay': 'float 5s ease-in-out 0.5s infinite',
-        'float-fast': 'float 2s ease-in-out infinite',
-        'float-fast-delay': 'float 2s ease-in-out 0.5s infinite',
+        'float-slow-delay-2': 'float 5s ease-in-out 1.0s infinite',
+        'float-slow-delay-3': 'float 5s ease-in-out 1.5s infinite',
         'rotate': 'rotate 60s linear infinite',
         'rotate-slow': 'rotate 240s linear infinite',
         'rotate-very-slow': 'rotate 480s linear infinite'
@@ -19,6 +21,9 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+      },
+      fontFamily: {
+        sans: ['var(--font-lexend-deca)'],
       },
       keyframes: {
         float: {

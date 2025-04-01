@@ -44,7 +44,6 @@ export default function Footer() {
       <Socials />
       <p className="text-gray-300 text-center">
         Located in the city of Roanoke, Virginia.<br />
-        Call or text: <Link className="underline" href="tel:5402433124">(540) 243-3124</Link>
       </p>
       <small className="text-gray-300 text-center">&copy; 2025 Brandforge Studio, LLC.</small>
     </footer>
