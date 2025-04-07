@@ -11,7 +11,7 @@ export default function Home() {
           <h1 className="sr-only">Brand Forge Studio</h1>
           <Logo />
           <h2 className="animate-float-delay-2 font-semibold text-6xl z-20 text-left">
-            We Help Businesses Secure a Competitive Edge on the Web.
+            Coming soon...
           </h2>
         </div>
         <div className="w-1/2 z-20">
