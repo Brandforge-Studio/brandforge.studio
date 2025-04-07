@@ -5,7 +5,6 @@ export default function PageNav() {
   const navButtons = [
     { label: "About", linkedPath: "/about" },
     { label: "Services", linkedPath: "/services" },
-    { label: "Pricing", linkedPath: "/pricing" },
     { label: "Contact", linkedPath: "/contact" },
   ];
 
