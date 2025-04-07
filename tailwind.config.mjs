@@ -16,7 +16,7 @@ export default {
         'float-slow-delay-3': 'float 5s ease-in-out 1.5s infinite',
         'rotate': 'rotate 60s linear infinite',
         'rotate-slow': 'rotate 240s linear infinite',
-        'rotate-very-slow': 'rotate 480s linear infinite'
+        'rotate-very-slow': 'rotate 480s linear infinite',
       },
       colors: {
         background: "var(--background)",

@@ -2,7 +2,7 @@ import Logo from "./_components/Logo";
 import Space from "./_components/Space";
 import Asteroid from "./_components/Asteroid";
 import Astronaut from "./_components/Astronaut";
-
+import NavButton from "./_components/NavButton";
 export default function Home() {
   return (
     <>
@@ -57,10 +57,10 @@ export default function Home() {
           />
         </section>
         <div className="flex justify-center pt-16 w-full">
-          <section className="flex flex-col justify-end items-end w-1/2">
+          <section className="flex flex-col justify-end items-end w-[50rem]">
             <h3 className="animate-float-delay-2 font-semibold text-5xl text-left w-full">Let's Make Something</h3>
-            <h3 className="animate-float-delay-3 font-semibold text-5xl text-right w-full">Awesome Together.</h3>
-            <button className="bg-white text-black mt-8 px-8 py-2 rounded-full w-fit">Get in Touch</button>
+            <h3 className="animate-float-delay-3 font-semibold pb-8 text-5xl text-right w-full">Awesome Together.</h3>
+            <NavButton label="Get in Touch" linkedPath="/contact" solid />
           </section>
         </div>
       </div>
