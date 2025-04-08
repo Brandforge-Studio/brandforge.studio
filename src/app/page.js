@@ -18,7 +18,7 @@ export default function Home() {
           <Astronaut />
         </div>
       </header>
-      <div className="-mt-32 py-48 px-48 w-full -z-1" 
+      <div className="-mt-44 py-48 px-48 w-full -z-1" 
         style={{ 
           clipPath: 'polygon(0% 10%, 100% 0%, 100% 100%, 0% 100%)',
           background: 'linear-gradient(to bottom, black 30%, black 50%, rgba(0,0,0,0) 100%)'
