@@ -30,13 +30,6 @@ export default function Footer() {
           <span className="text-gray-300">|</span>
           <Link 
             className="border-b border-transparent hover:border-white" 
-            href="/pricing"
-          >
-            Pricing
-          </Link>
-          <span className="text-gray-300">|</span>
-          <Link 
-            className="border-b border-transparent hover:border-white" 
             href="/contact"
           >
             Contact
