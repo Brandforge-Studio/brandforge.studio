@@ -13,7 +13,7 @@ export default function SegmentedButton(props) {
   };
 
   return (
-    <div className="bg-black border-purple-900 border-2 flex flex-col relative rounded-[2.3rem] w-full
+    <div className="bg-black/50 border-purple-900 border-2 flex flex-col relative rounded-[2.3rem] w-full
       md:flex-row md:rounded-full md:before:rounded-full md:after:rounded-full
       before:content-[''] before:absolute before:inset-0 before:bg-purple-500/50 before:blur-xl before:rounded-[2.3rem] before:-z-10 before:transition-opacity before:duration-500
       after:content-[''] after:absolute after:inset-0 after:bg-purple-500/30 after:blur-xl after:rounded-[2.3rem] after:scale-105 after:-z-10 after:opacity-0"
