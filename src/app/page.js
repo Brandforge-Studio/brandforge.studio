@@ -13,8 +13,8 @@ export default function Home() {
           height={500}
           className="p-10 md:w-2/3 h-auto"
         />
-        <h1 className="pb-10 text-white md:text-6xl text-4xl font-bold text-center">An Epic Web Experience Awaits</h1>
-        <h2 className="pb-10 text-white md:text-4xl text-2xl font-bold text-center">Coming Soon...</h2>
+        <h1 className="pb-10 text-white xl:text-6xl text-4xl font-bold text-center">An Epic Web Experience Awaits</h1>
+        <h2 className="pb-10 text-white xl:text-4xl text-2xl font-bold text-center">Coming Soon...</h2>
       </div>
       <Footer />
       <Space />
