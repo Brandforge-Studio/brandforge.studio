@@ -1,7 +1,5 @@
 import { Lexend_Deca } from "next/font/google";
 import "./globals.css";
-import PageNav from "./_components/PageNav";
-import Footer from "./_components/Footer";
 
 const lexendDeca = Lexend_Deca({
   variable: "--font-lexend-deca",
@@ -19,11 +17,9 @@ export default function RootLayout({ children }) {
       <body
         className={`${lexendDeca.variable} antialiased font-sans min-h-screen`}
       >
-        <PageNav />
         <main className="flex-1 flex flex-col">
           {children}
         </main>
-        <Footer />
       </body>
     </html>
   );
