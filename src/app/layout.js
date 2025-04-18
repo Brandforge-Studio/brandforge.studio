@@ -2,7 +2,7 @@ import { Lexend_Deca } from "next/font/google";
 import "./globals.css";
 import PageNav from "./_components/PageNav";
 import Footer from "./_components/Footer";
-
+import Space from "./_components/Space";
 const lexendDeca = Lexend_Deca({
   variable: "--font-lexend-deca",
   subsets: ["latin"],
@@ -23,6 +23,7 @@ export default function RootLayout({ children }) {
         <main className="flex-1 flex flex-col">
           {children}
         </main>
+        <Space />
         <Footer />
       </body>
     </html>

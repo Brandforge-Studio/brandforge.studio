@@ -64,7 +64,6 @@ export default function Home() {
           </section>
         </div>
       </div>
-      <Space />
       <Asteroid />
     </>
   );
